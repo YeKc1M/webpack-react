@@ -16,19 +16,12 @@ module.exports={
                 test: /\.css$/,
                 use:[
                     {
-                        loader:'style-loader'
+                        loader:'style-loader',
                     },{
                         loader:'css-loader'
                     }
                 ]
-            }//,
-            // {
-            //     test: /(\.jsx|\.js)$/,
-            //     use:{
-            //         loader: 'babel-loader'
-            //     },
-            //     exclude: /node_modules/
-            // }
+            }
         ]
     }
 }

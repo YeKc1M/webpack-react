@@ -10,6 +10,10 @@
   "author": "mky",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "css-loader": "^3.5.2",
     "style-loader": "^1.1.4",
     "webpack": "^4.42.1",
