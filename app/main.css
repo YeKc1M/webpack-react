@@ -1,0 +1,9 @@
+body{
+    background-color: aquamarine;
+}
+#root div{
+    color: red;
+}
+#testMain div{
+    color: blue;
+}
