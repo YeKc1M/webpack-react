@@ -1,12 +1,14 @@
 这个项目用来学习用webpack构建react项目
 
 reference：https://blog.csdn.net/weixin_34413802/article/details/92498807
+https://lvzhenbang.github.io/webpack-book/zh/developing/01_getting_started.html#%E5%AE%89%E8%A3%85-webpack
 
 # 配置文件来使用webpack
 
 `npm init`创建`package.json`
 
 `npm install --save-dev webpack`安装webpack依赖
+`npm install --save-dev webpack-cli`
 
 新建app和public文件夹，app存放原始数据和JavaScript模块，public存放webpack打包生成的js文件和html文件
 
