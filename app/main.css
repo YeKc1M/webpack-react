@@ -1,5 +1,7 @@
 body{
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+    background-image: url('preview.jpg');
+    background-repeat: no-repeat;
 }
 #root div{
     color: red;

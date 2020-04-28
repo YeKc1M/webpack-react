@@ -31,6 +31,18 @@ module.exports={
                     }
                 },
                 exclude:/node_modules/
+            },
+            {
+                test:/\.(png|jpg)$/,
+                use:{
+                    loader:'url-loader'
+                }
+            },
+            {
+                test:/\.svg$/,
+                use:{
+                    loader:'file-loader'
+                }
             }
         ]
     }
