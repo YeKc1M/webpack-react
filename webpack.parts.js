@@ -1,4 +1,5 @@
 const MiniCssExtraPlugin=require("mini-css-extract-plugin")
+const HtmlWebpackPlugin=require("html-webpack-plugin")
 
 exports.devServer=({host, port}={})=>({
     devServer:{
@@ -70,4 +71,20 @@ exports.loadJavaScript=({include, exclude}={})=>({
             }
         ]
     }
+})
+
+exports.page=({
+    path="",
+    template=require.resolve("html-webpack-plugin/default_index.ejs"),
+    title,
+    entry,
+}={})=>({
+    entry,
+    plugins:[
+        new HtmlWebpackPlugin({
+            filename: `${path && path + "/"}index.html`,
+            template,
+            title,
+        }),
+    ],
 })
