@@ -1,27 +1,28 @@
 {
-  "name": "webpack-learning",
+  "name": "survivejs",
   "version": "1.0.0",
-  "description": "webpack learning",
-  "main": "index.js",
+  "description": "",
+  "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --inline",
+    "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production"
   },
-  "author": "mky",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "css-loader": "^3.5.3",
-    "file-loader": "^6.0.0",
-    "style-loader": "^1.2.0",
+    "css-loader": "^3.6.0",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "react": "^16.13.1",

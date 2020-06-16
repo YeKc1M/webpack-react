@@ -1,49 +1,33 @@
-module.exports={
-    entry: __dirname+'/app/main.js',
-    output:{
-        path:__dirname+'/public',
-        filename:'bundle.js'
+const merge=require("webpack-merge")
+const HtmlWebpackPlugin=require("html-webpack-plugin")
+
+const parts=require("./webpack.parts")
+
+const commonConfig=merge([
+    {
+        plugins:[
+            new HtmlWebpackPlugin({
+                title:"Webpack demo",
+            }),
+        ],
     },
-    devtool:'eval-source-map',
-    devServer:{
-        contentBase:"./public",
-        historyApiFallback:true,
-        inline:true
-    },
-    module:{
-        rules:[
-            {
-                test: /\.css$/,
-                use:[
-                    {
-                        loader:'style-loader',
-                    },{
-                        loader:'css-loader'
-                    }
-                ]
-            },
-            {
-                test: /\.js$/,
-                use:{
-                    loader:'babel-loader',
-                    options:{
-                        presets:['env','react']
-                    }
-                },
-                exclude:/node_modules/
-            },
-            {
-                test:/\.(png|jpg)$/,
-                use:{
-                    loader:'url-loader'
-                }
-            },
-            {
-                test:/\.svg$/,
-                use:{
-                    loader:'file-loader'
-                }
-            }
-        ]
+    parts.loadCSS(),
+    parts.loadJavaScript(),
+    parts.loadImages(),
+])
+
+const productionConfig=merge([])
+
+const developmentConfig=merge([
+    parts.devServer({
+        host: process.env.HOST,
+        port: process.env.PORT,
+    }),
+])
+
+module.exports=mode=>{
+    if(mode==="production"){
+        return merge(conmmonConfig, productionConfig, {mode});
     }
+    return merge(commonConfig, developmentConfig, {mode});
 }
