@@ -1,3 +1,5 @@
+const MiniCssExtraPlugin=require("mini-css-extract-plugin")
+
 exports.devServer=({host, port}={})=>({
     devServer:{
         host,
@@ -19,6 +21,26 @@ exports.loadCSS=({include, exclude}={})=>({
         ],
     },
 })
+
+exports.extractCSS=({include, exclude, use=[]})=>{
+    const plugin=new MiniCssExtraPlugin({filename:"[name].css",});
+    return {
+        module:{
+            rules:[
+                {
+                    test:/\.css$/,
+                    include,
+                    exclude,
+                    use:[
+                        MiniCssExtraPlugin.loader,
+                    ].concat(use),
+                    filename: "styles/[name].css",
+                },
+            ],
+        },
+        plugins:[plugin],
+    }
+}
 
 exports.loadImages=({}={})=>({
     module:{

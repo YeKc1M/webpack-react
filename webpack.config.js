@@ -16,7 +16,11 @@ const commonConfig=merge([
     parts.loadImages(),
 ])
 
-const productionConfig=merge([])
+const productionConfig=merge([
+    parts.extractCSS({
+        use: "css-loader",
+    })
+])
 
 const developmentConfig=merge([
     parts.devServer({
